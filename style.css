@@ -128,6 +128,12 @@ button {
 }
 
 /* Responsive grid for small/large screens */
+@media (max-width: 600px) {
+  body {
+    align-items: flex-start;
+  }
+}
+
 @media (max-width: 520px) {
   .board {
     grid-template-columns: repeat(3, 1fr);
