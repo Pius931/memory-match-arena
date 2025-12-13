@@ -127,30 +127,43 @@ button {
   cursor: pointer;
 }
 
-/* Responsive grid for small/large screens */
-@media (max-width: 600px) {
-  body {
-    align-items: flex-start;
-  }
+/* ===================== RESPONSIVE & LAYOUT ===================== */
+
+/* Body and general layout */
+body {
+  display: flex;
+  flex-direction: column; /* stack header, instructions, board vertically */
+  align-items: center; /* horizontal centering */
+  justify-content: flex-start; /* top start */
+  min-height: 100vh;
+  padding: 16px 0;
+  overflow-y: auto; /* allow scrolling on small screens */
 }
 
-@media (max-width: 520px) {
-  .board {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media (min-width: 900px) {
-  .board {
-    grid-template-columns: repeat(6, 1fr);
-  }
+/* Instructions text */
+.instructions {
+  text-align: center;
+  margin: 12px 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
 }
 
+/* Board styling */
+.board {
+  display: grid;
+  gap: 12px;
+  width: 80%;
+  max-width: 600px;
+}
+
+/* Cards */
 .card {
   width: 100%;
   aspect-ratio: 3/4;
   perspective: 1000px;
   position: relative;
 }
+
 .card-inner {
   position: absolute;
   inset: 0;
@@ -160,6 +173,7 @@ button {
   cursor: pointer;
   box-shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
 }
+
 .card.flip .card-inner {
   transform: rotateY(180deg);
 }
@@ -175,6 +189,7 @@ button {
   font-size: 32px;
   user-select: none;
 }
+
 .front {
   background: linear-gradient(
     180deg,
@@ -186,6 +201,7 @@ button {
   transform: rotateY(180deg);
   font-size: 28px;
 }
+
 .back {
   background: linear-gradient(180deg, var(--card), #0891b2);
   display: flex;
@@ -196,6 +212,7 @@ button {
   align-items: center;
   justify-content: center;
 }
+
 .small {
   font-size: 12px;
   opacity: 0.9;
@@ -206,14 +223,57 @@ button {
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.03) inset;
   opacity: 0.9;
 }
+
 .muted {
   opacity: 0.25;
   transform: scale(0.98);
   pointer-events: none;
 }
 
+/* Footer text */
 .footer-note {
   margin-top: 14px;
   font-size: 13px;
   color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===================== MEDIA QUERIES ===================== */
+
+/* Small screens (phones) */
+@media (max-width: 600px) {
+  .board {
+    grid-template-columns: repeat(3, 1fr);
+    width: 90%;
+    gap: 10px;
+  }
+  .card-face {
+    font-size: 24px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 400px) {
+  .board {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card-face {
+    font-size: 20px;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 900px) {
+  .board {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .card-face {
+    font-size: 28px;
+  }
+}
+
+/* Large screens / desktop */
+@media (min-width: 901px) {
+  .board {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
