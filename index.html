@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Memory Card Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app" role="application">
+      <header>
+        <div>
+          <h1>Memory Match —> Vanilla JS</h1>
+          <div class="small" style="opacity: 0.85">
+            Match all pairs —> best score saves locally
+          </div>
+        </div>
+
+        <!-- Win Modal -->
+        <div class="modal hidden" id="winModal">
+          <div class="modal-content">
+            <h2>🎉 You Won!</h2>
+            <p>You matched all the cards.</p>
+
+            <div class="modal-stats">
+              <p><strong>Moves:</strong> <span id="modalMoves"></span></p>
+              <p><strong>Time:</strong> <span id="modalTime"></span></p>
+            </div>
+
+            <button id="playAgainBtn">Play Again</button>
+          </div>
+        </div>
+
+        <div class="controls">
+          <div class="stats">
+            <div>Moves: <strong id="moves">0</strong></div>
+            <div>Time: <strong id="time">00:00</strong></div>
+            <div>Best: <strong id="best">—</strong></div>
+          </div>
+          <button id="restart">Restart</button>
+        </div>
+      </header>
+
+      <main>
+        <p class="instructions">
+          Flip two cards at a time and match all pairs as fast as possible using
+          the fewest moves.
+        </p>
+
+        <div id="board" class="board" aria-live="polite"></div>
+        <div class="footer-note">
+          Tip: Try to finish with the least moves. Use Restart to reshuffle.
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
