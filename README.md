@@ -1,4 +1,4 @@
-# Memory Match Arena 🧠🎮
+# Memory Match Arena 
 
 A responsive memory card game built with **vanilla JavaScript**, designed to test speed and focus by matching all card pairs in the shortest time with the fewest moves.
 
